@@ -1,6 +1,7 @@
 package com.example.haulmont.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "patients")
@@ -12,6 +13,8 @@ public class PatientsModel {
     String p_family;
     String p_patronymic;
     String p_number;
+
+   // public List<RecipesModel>recipesModelList;
 
     public PatientsModel() {
     }
@@ -67,11 +70,15 @@ public class PatientsModel {
         this.p_number = p_number;
     }
 
-    public PatientsModel(Long p_id, String p_name, String p_family, String p_patronymic, String p_number) {
+    public PatientsModel(Long p_id, String p_name, String p_family, String p_patronymic, String p_number
+           // ,List<RecipesModel> recipesModelList, List<DoctorsModel> doctorsModelsList
+    ) {
         this.p_id = p_id;
         this.p_name = p_name;
         this.p_family = p_family;
         this.p_patronymic = p_patronymic;
         this.p_number = p_number;
+        //this.recipesModelList = recipesModelList;
+      //  this.doctorsModelsList = doctorsModelsList;
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class ConverterDoctorsDTO {
     public DoctorsModel fromDoctorsDtoToDoctors(DoctorsDTO dDTO){
         DoctorsModel dm = new DoctorsModel();
-        dm.setD_id(dDTO.getD_id());
+        dm.setdId(dDTO.getD_id());
         dm.setD_family(dDTO.getD_family());
         dm.setD_name(dDTO.getD_name());
         dm.setD_patronymic(dDTO.getD_patronymic());
@@ -17,7 +17,7 @@ public class ConverterDoctorsDTO {
     }
     public DoctorsDTO fromDoctorsToDoctorsDTO(DoctorsModel dm){
         DoctorsDTO dDTO = new DoctorsDTO();
-        dDTO.setD_id(dm.getD_id());
+        dDTO.setD_id(dm.getdId());
         dDTO.setD_family(dm.getD_family());
         dDTO.setD_name(dm.getD_name());
         dDTO.setD_patronymic(dm.getD_patronymic());

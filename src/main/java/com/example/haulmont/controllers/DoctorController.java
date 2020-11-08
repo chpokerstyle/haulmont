@@ -21,7 +21,7 @@ public class DoctorController {
     }
 
     @DeleteMapping("/delete/{id}")                                               // !!! ПОКА НЕ РАБОТАЕТ. ИСПРАВИТЬ !!!
-    public ResponseEntity<Void>deleteDoc(@PathVariable Long id){
+    public ResponseEntity<Void>deleteDoc(@PathVariable Long id){                 // или работает. Я хз, если честно...
     doctorsDefaultService.deleteDoctor(id);
         return ResponseEntity
                 .ok()
