@@ -1,7 +1,7 @@
 package com.example.haulmont.controllers;
 
 import com.example.haulmont.dto.PatientsDTO;
-import com.example.haulmont.models.PatientsModel;
+import com.example.haulmont.models.PatientEntity;
 import com.example.haulmont.servises.PatientsDefaultService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ public class PatientsController {
     }
 
     @GetMapping("/")
-    public Iterable<PatientsModel> allPatients(){
+    public Iterable<PatientEntity> allPatients(){
         return patientsDefaultService.patientsFindAll();
     }
 

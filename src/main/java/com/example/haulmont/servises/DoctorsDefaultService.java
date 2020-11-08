@@ -2,7 +2,7 @@ package com.example.haulmont.servises;
 
 import com.example.haulmont.converterDTO.ConverterDoctorsDTO;
 import com.example.haulmont.dto.DoctorsDTO;
-import com.example.haulmont.models.DoctorsModel;
+import com.example.haulmont.models.DoctorEntity;
 import com.example.haulmont.repositories.DoctorsRepository;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +19,7 @@ public class DoctorsDefaultService implements DoctorsService {
 
     @Override
     public DoctorsDTO saveDoctor(DoctorsDTO doctorsDTO) {
-        DoctorsModel saveDoctor = doctorsRepository.save(converterDoctorsDTO.fromDoctorsDtoToDoctors(doctorsDTO));
+        DoctorEntity saveDoctor = doctorsRepository.save(converterDoctorsDTO.fromDoctorsDtoToDoctors(doctorsDTO));
         return converterDoctorsDTO.fromDoctorsToDoctorsDTO(saveDoctor);
     }
 
@@ -30,12 +30,12 @@ public class DoctorsDefaultService implements DoctorsService {
 
     @Override
     public DoctorsDTO editDoctor(DoctorsDTO doctorsDTO) {
-        DoctorsModel editDoctor = doctorsRepository.save(converterDoctorsDTO.fromDoctorsDtoToDoctors(doctorsDTO));
+        DoctorEntity editDoctor = doctorsRepository.save(converterDoctorsDTO.fromDoctorsDtoToDoctors(doctorsDTO));
         return converterDoctorsDTO.fromDoctorsToDoctorsDTO(editDoctor);
     }
 
     @Override
-    public Iterable<DoctorsModel> doctorsFindAll() {
+    public Iterable<DoctorEntity> doctorsFindAll() {
         return doctorsRepository.findAll();
     }
 }

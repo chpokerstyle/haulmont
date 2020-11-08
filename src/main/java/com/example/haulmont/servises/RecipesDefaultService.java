@@ -2,7 +2,7 @@ package com.example.haulmont.servises;
 
 import com.example.haulmont.converterDTO.ConverterRecipesDTO;
 import com.example.haulmont.dto.RecipesDTO;
-import com.example.haulmont.models.RecipesModel;
+import com.example.haulmont.models.RecipeEntity;
 import com.example.haulmont.repositories.RecipesRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class RecipesDefaultService implements RecipesService {
     }
 
     @Override
-    public Iterable<RecipesModel> recipesFindAll() {
+    public Iterable<RecipeEntity> recipesFindAll() {
         return recipesRepository.findAll();
     } //возвращает всех пользователей из коллекции
 
@@ -29,13 +29,13 @@ public class RecipesDefaultService implements RecipesService {
 
     @Override
     public RecipesDTO saveRecipes(RecipesDTO recipesDTO) {
-        RecipesModel recipesModel = recipesRepository.save(converterRecipesDTO.fromRecipesDtoToRecipes(recipesDTO));
-        return converterRecipesDTO.fromRecipesToRecipesDTO(recipesModel);
+        RecipeEntity recipeEntity = recipesRepository.save(converterRecipesDTO.fromRecipesDtoToRecipes(recipesDTO));
+        return converterRecipesDTO.fromRecipesToRecipesDTO(recipeEntity);
     }
 
     @Override
     public RecipesDTO editRecipes(RecipesDTO recipesDTO) {
-        RecipesModel recipesModel = recipesRepository.save(converterRecipesDTO.fromRecipesDtoToRecipes(recipesDTO));
-        return converterRecipesDTO.fromRecipesToRecipesDTO(recipesModel);
+        RecipeEntity recipeEntity = recipesRepository.save(converterRecipesDTO.fromRecipesDtoToRecipes(recipesDTO));
+        return converterRecipesDTO.fromRecipesToRecipesDTO(recipeEntity);
     }
 }

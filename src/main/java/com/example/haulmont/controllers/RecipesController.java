@@ -1,11 +1,9 @@
 package com.example.haulmont.controllers;
 
 import com.example.haulmont.dto.RecipesDTO;
-import com.example.haulmont.models.RecipesModel;
+import com.example.haulmont.models.RecipeEntity;
 import com.example.haulmont.servises.RecipesService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/recipes")
@@ -18,7 +16,7 @@ public class RecipesController {
 
 
     @GetMapping("/")
-    public Iterable<RecipesModel> recipesAll (RecipesDTO recipesDTO){
+    public Iterable<RecipeEntity> recipesAll (RecipesDTO recipesDTO){
         return recipesService.recipesFindAll();
     }
 

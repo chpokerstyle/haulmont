@@ -2,7 +2,7 @@ package com.example.haulmont.servises;
 
 import com.example.haulmont.converterDTO.ConverterPatientsDTO;
 import com.example.haulmont.dto.PatientsDTO;
-import com.example.haulmont.models.PatientsModel;
+import com.example.haulmont.models.PatientEntity;
 import com.example.haulmont.repositories.PatientsRepository;
 import org.springframework.stereotype.Component;
 
@@ -19,8 +19,8 @@ public class PatientsDefaultService implements PatientsService {
 
     @Override
     public PatientsDTO savePatients(PatientsDTO patientsDTO) {
-        PatientsModel savePatientsModel = patientsRepository.save(converterPatientsDTO.fromPatientsDtoToPatients(patientsDTO));
-        return converterPatientsDTO.fromPatientsToPatientsDTO(savePatientsModel);
+        PatientEntity savePatientEntity = patientsRepository.save(converterPatientsDTO.fromPatientsDtoToPatients(patientsDTO));
+        return converterPatientsDTO.fromPatientsToPatientsDTO(savePatientEntity);
     }
 
     @Override
@@ -30,12 +30,12 @@ public class PatientsDefaultService implements PatientsService {
 
     @Override
     public PatientsDTO editPatients(PatientsDTO patientsDTO) {
-        PatientsModel editPatientsModel = patientsRepository.save(converterPatientsDTO.fromPatientsDtoToPatients(patientsDTO));
-        return converterPatientsDTO.fromPatientsToPatientsDTO(editPatientsModel);
+        PatientEntity editPatientEntity = patientsRepository.save(converterPatientsDTO.fromPatientsDtoToPatients(patientsDTO));
+        return converterPatientsDTO.fromPatientsToPatientsDTO(editPatientEntity);
     }
 
     @Override
-    public Iterable<PatientsModel> patientsFindAll() {
+    public Iterable<PatientEntity> patientsFindAll() {
         return patientsRepository.findAll();
     }
 }
